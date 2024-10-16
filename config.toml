@@ -1,0 +1,99 @@
+theme = "sonokai_well_bg"
+
+[editor]
+bufferline = "multiple"
+color-modes = true
+auto-format = false
+auto-pairs = false
+rulers = [80]
+
+
+[editor.cursor-shape]
+insert = "bar"
+
+
+[editor.whitespace]
+[editor.whitespace.render]
+nbsp = "all"
+tab = "all"
+
+
+[editor.whitespace.characters]
+nbsp = "⍽"
+tab = "▏"
+
+
+# [key map]
+# At most one section each of 'keys.normal', 'keys.insert' and 'keys.select'
+
+[keys.normal]
+# Quick iteration on config changes
+C-o = ":config-open"
+C-r = ":config-reload"
+
+# Muscle memory
+home = "goto_first_nonwhitespace"
+G = "goto_file_end"
+"%" = "match_brackets"
+";" = ["command_mode"]
+V = ["select_mode", "extend_to_line_bounds"]
+x = "delete_selection"
+D = ["extend_to_line_end", "yank_main_selection_to_clipboard", "delete_selection"]
+p = ["paste_clipboard_after", "collapse_selection"]
+P = ["paste_clipboard_before", "collapse_selection"]
+
+# Search for word under cursor
+"*" = ["move_char_right", "move_prev_word_start", "move_next_word_end", "search_selection", "search_next"]
+"#" = ["move_char_right", "move_prev_word_start", "move_next_word_end", "search_selection", "search_prev"]
+
+
+C-up = ["move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "move_visual_line_up"]
+C-down = ["move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "move_visual_line_down"]
+C-left = "move_prev_word_start"
+C-right = "move_next_word_end"
+
+S-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+S-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+
+A-right = ["goto_next_buffer"]
+A-left = ["goto_previous_buffer"]
+
+
+[keys.insert]
+C-up = ["move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "move_visual_line_up"]
+C-down = ["move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "move_visual_line_down"]
+C-left = "move_prev_word_start"
+C-right = "move_next_word_end"
+
+S-up = ["normal_mode", "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before", "insert_mode"]
+S-down = ["normal_mode", "extend_to_line_bounds", "delete_selection", "paste_after", "insert_mode"]
+
+# Escape the madness! No more fighting with the cursor! Or with multiple cursors!
+esc = ["collapse_selection", "normal_mode"]
+
+[keys.normal.d]
+d = ["extend_to_line_bounds", "yank_main_selection_to_clipboard", "delete_selection"]
+w = ["move_next_word_start", "yank_main_selection_to_clipboard", "delete_selection"]
+
+[keys.normal.y]
+y = ["extend_to_line_bounds", "yank_main_selection_to_clipboard", "normal_mode", "collapse_selection"]
+
+
+[keys.select]
+G = "goto_file_end"
+D = ["extend_to_line_bounds", "delete_selection", "normal_mode"]
+"%" = "match_brackets"
+
+# Visual-mode specific muscle memory
+i = "select_textobject_inner"
+a = "select_textobject_around"
+
+d = ["yank_main_selection_to_clipboard", "delete_selection"]
+x = ["yank_main_selection_to_clipboard", "delete_selection"]
+y = ["yank_main_selection_to_clipboard", "normal_mode", "flip_selections", "collapse_selection"]
+p = "replace_selections_with_clipboard" # No life without this
+P = "paste_clipboard_before"
+# Escape the madness! No more fighting with the cursor! Or with multiple cursors!
+esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
+
+
